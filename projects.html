@@ -9,6 +9,38 @@
   
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="projects.css">
+  <style>
+    /* Tab Filtering Buttons Styling */
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #a0aec0;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .tab-btn.active-tab {
+      background: #000000;
+      color: #fff;
+      border-color: #ffee00;
+    }
+  </style>
 </head>
 <body>
 
@@ -191,11 +223,11 @@
 
   <div class="card" data-category="game">
     <div class="project-header">
-      <div class="project-title"> Project 18: CROSSY ROAD GAME</div>
+      <div class="project-title"> Project 17: CROSSY ROAD GAME</div>
       <a href="https://unishniraulaofficial.github.io/CROSSY_ROAD_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
     </div>
 
-    <p class="project-desc">Experience the fast-paced thrill of crossing the road right in your browser. Built entirely with pure HTML, CSS, and JavaScript.</p>
+    <p class="project-desc">Experience the fast-paced thrill of crossing the road right in your browser. Built entirely with pure HTML, CSS, and JavaScript</p>
   </div>
 
  <div class="card" data-category="game">
@@ -211,6 +243,41 @@
 <footer>&copy; <span id="year"></span> Unish Niraula. All rights reserved.</footer>
 
 <script src="projects.js"></script>
+<script>
+  let currentCategory = 'all';
 
+  // Category Tab Filter Functionality
+  function filterCategory(category, element) {
+    currentCategory = category;
+    
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+    element.classList.add('active-tab');
+
+    applyFilters();
+  }
+
+  // Unified Filtering (Search + Category)
+  function applyFilters() {
+    const query = document.getElementById('projectSearch').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const text = card.textContent.toLowerCase();
+
+      const matchesSearch = text.includes(query);
+      const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Search Filtering Listener
+  document.getElementById('projectSearch').addEventListener('input', applyFilters);
+</script>
 </body>
 </html>
