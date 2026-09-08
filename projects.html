@@ -2,169 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Gold &amp; Silver Price Today Nepal 2082 | Live Rates</title>
-  <meta name="description" content="Real-time gold and silver price in Nepal per tola and per gram with price reference. Updated daily.">
-  <meta name="keywords" content="gold price nepal today tola, silver price nepal today, fine gold price tola, tejabi gold price nepal">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Gold &amp; Silver Price Nepal – Live Today">
-  <meta property="og:description" content="Live Nepal gold/silver prices per tola and per gram. Updated daily.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Nunito:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Unish Niraula — Projects</title>
+   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="projects.css">
 </head>
 <body>
-<div class="wrap">
 
-  <header class="hero">
-    <h1>GOLD &amp;<br><span>SILVER PRICES</span></h1>
-    <p>Live benchmark gold &amp; silver prices in Nepal. Updated every business day.</p>
-    <div class="live-badge"><div class="live-dot"></div> Live Data · FENEGOSIDA Official API</div>
-  </header>
+<header>
+  <div class="header-row">
+    <div class="avatar-sm"><img src="https://cdn.phototourl.com/free/2026-08-13-e6fae289-1e49-4fce-b732-136059cf0826.png" alt="Unish"></div>
+    <div>
+      <div class="header-name">Unish Niraula</div>
+      <div class="header-role">Aspiring Full Stack Dev</div>
+    </div>
+  </div>
+</header>
 
-  <main>
-    <!-- ════ GOLD & SILVER DIRECT VIEW ════ -->
-    <div id="panelGold">
+<main class="container">
+  <nav class="nav-box">
+    <a href="https://unishniraula.com.np/" class="nav-item"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>HOME</a>
+    <a href="https://unishniraula.com.np/projects" class="nav-item active"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>PROJECTS</a>
+    <a href="https://unishniraula.com.np/contact" class="nav-item"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>CONTACT</a>
+  </nav>
 
-      <!-- International strip -->
-      <div class="intl-strip" id="intlStrip">
-        <div class="intl-item">
-          <div class="intl-label">Gold (XAU) International</div>
-          <div class="intl-value" id="intlGoldUSD">$3,520.50 / oz</div>
-        </div>
-        <div class="intl-item">
-          <div class="intl-label">Silver (XAG) International</div>
-          <div class="intl-value" id="intlSilverUSD">$41.80 / oz</div>
-        </div>
-        <div class="intl-item">
-          <div class="intl-label">1 Tola Conversion</div>
-          <div class="intl-value">11.664 Grams</div>
-        </div>
-        <div class="intl-item" style="margin-left:auto;font-size:12px;color:var(--muted);">
-          <div>Source: FENEGOSIDA</div>
-          <div id="lastUpdated">Updated: 2026-09-08</div>
-        </div>
-      </div>
+  <div class="search-container">
+    <input type="text" id="projectSearch" class="search-input" placeholder="Search projects by name or description...">
+  </div>
 
-      <!-- Live Gold & Silver Cards Grid -->
-      <div id="preciousGrid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin:20px 0;">
-        <!-- Dynamically filled by autoCalculateGoldSilver() -->
-      </div>
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 1: Task Manager</div>
+      <a href="https://unishniraulaofficial.github.io/Project-1/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">A fully functional interactive task manager built with JavaScript. Click the button above to visit the live site.</p>
+    
+    <ul id="todoList" class="todo-list">
+    </ul>
+  </div>
 
-      <!-- Historical gold prices reference -->
-      <div class="content-section" style="margin-top:20px;">
-        <h2 class="section-title">Gold Price in Nepal – Historical Reference (per Tola)</h2>
-        <p>Nepal gold prices broadly track global XAU/USD, amplified by NPR depreciation. Gold has <strong>tripled in NPR price</strong> over 2015–2025, making it one of the best-performing assets for Nepali investors.</p>
-        <div class="hist-table-wrap">
-          <table class="hist-table">
-            <thead>
-              <tr><th>Year (Approx.)</th><th>Hallmark Gold / Tola (NPR)</th><th>Tejabi Gold / Tola (NPR)</th><th>Silver / Tola (NPR)</th><th>YoY Change</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>2015</td><td>~60,000</td><td>~55,000</td><td>~800</td><td>–</td></tr>
-              <tr><td>2017</td><td>~72,000</td><td>~66,000</td><td>~900</td><td class="up-cell">+20%</td></tr>
-              <tr><td>2019</td><td>~85,000</td><td>~78,000</td><td>~1,000</td><td class="up-cell">+18%</td></tr>
-              <tr><td>2020</td><td>~105,000</td><td>~97,000</td><td>~1,400</td><td class="up-cell">+24%</td></tr>
-              <tr><td>2021</td><td>~93,000</td><td>~86,000</td><td>~1,200</td><td class="dn-cell">−11%</td></tr>
-              <tr><td>2022</td><td>~115,000</td><td>~106,000</td><td>~1,350</td><td class="up-cell">+24%</td></tr>
-              <tr><td>2023</td><td>~130,000</td><td>~120,000</td><td>~1,500</td><td class="up-cell">+13%</td></tr>
-              <tr><td>2024</td><td>~185,000</td><td>~170,000</td><td>~2,200</td><td class="up-cell">+42%</td></tr>
-              <tr><td>2025</td><td>~230,000+</td><td>~210,000+</td><td>~3,000+</td><td class="up-cell">+24%</td></tr>
-              <tr><td>Today (Live ↑)</td><td id="histCurrentGold">NRs 3,01,900</td><td id="histCurrentTejabi">NRs 2,98,900</td><td id="histCurrentSilver">NRs 4,690</td><td class="up-cell">Record Highs</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 2: Quiz Game</div>
+      <a href="https://unishniraulaofficial.github.io/Project-2/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">An interactive trivia and knowledge testing quiz game built with vanilla JavaScript. Click the button above to play live.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 3: Contact Form </div>
+      <a href="https://unishniraulaofficial.github.io/Project-3/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">A modern, responsive contact form UI built using clean HTML and custom CSS. Click the button above to test it live.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 4: Color Palette generator</div>
+      <a href="https://unishniraulaofficial.github.io/Project-4/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">An interactive web project built using HTML, CSS, and JavaScript. Click the button above to explore it live.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 5: GitHub Finder</div>
+      <a href="https://unishniraulaofficial.github.io/Project-5/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">A web application built to search GitHub users, fetch profile details, and display public repositories using the GitHub REST API. Click the button above to test it live.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 6: Currency Convertor</div>
+      <a href="https://unishniraulaofficial.github.io/Project-6/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">A web application built to search global exchange rates, calculate currency values, and display real-time conversion rates using the Exchange Rate REST API. Click the button above to test it live.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 7: Dark Toggle</div>
+      <a href="https://unishniraulaofficial.github.io/Project-7/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">A front-end web application that leverages persistent state management to deliver seamlessly adaptable dark and light themes, improving visual ergonomics and screen accessibility.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title">Project 8: OTP Input UI</div>
+      <a href="https://unishniraulaofficial.github.io/Project-8/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+    
+    <p class="project-desc">A modern, responsive OTP input UI built using clean HTML and custom CSS. Click the button above to test it live.</p>
+  </div>
+  
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title"> Project 9: Comming Soon UI</div>
+      <a href="https://unishniraulaofficial.github.io/Project-9/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
     </div>
 
-  </main>
+    <p class="project-desc">Here is a complete, modern "Coming Soon" page with custom CSS, interactive JavaScript.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title"> Project 10: QR Code Generator</div>
+      <a href="https://unishniraulaofficial.github.io/Project-10/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+
+    <p class="project-desc">A modern, responsive QR Code Generator built using clean HTML, custom CSS, and JavaScript. Click the button below to generate custom QR codes live.</p>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title"> Project 11: Password Generator</div>
+      <a href="https://unishniraulaofficial.github.io/Project-11/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+
+    <p class="project-desc">The Password Generator is a responsive website built using HTML, CSS, and JavaScript. Designed with a focus on simplicity, security, and user experience, it allows users to quickly create customizable, cryptographically strong passwords tailored to specific security requirements.</p>
+  </div>
+
+    <div class="card">
+    <div class="project-header">
+      <div class="project-title"> Project 12: BS to AD Converter</div>
+      <a href="https://dateconvertor.infy.click/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+
+    <p class="project-desc">The BS to AD Converter is a responsive website built using HTML, CSS, and JavaScript. Designed with a focus on simplicity, accuracy, and user experience.</p>
+  </div>
+
+   <div class="card">
+    <div class="project-header">
+      <div class="project-title"> Project 13: Kundali Maker</div>
+      <a href="https://unishniraulaofficial.github.io/KUNDALI_MAKER/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+
+    <p class="project-desc">Developed using HTML, CSS, and JavaScript, Kundali Maker delivers a streamlined user experience, pairing precise astronomical data processing with a clean, fully responsive layout.</p>
 </div>
+   
+<div class="card">
+    <div class="project-header">
+      <div class="project-title"> Project 14: Kundali Matchmaking</div>
+      <a href="https://unishniraulaofficial.github.io/KUNDALI_MATCHMAKING/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
 
+    <p class="project-desc">Engineered with HTML, CSS, and JavaScript, this platform pairs complex astrological algorithms with an intuitive UI to deliver fast, accurate compatibility assessments across all screen sizes.</p>
+  </div>
+  </div>
+
+  <div class="card">
+    <div class="project-header">
+      <div class="project-title"> Project 15: LIVE GOLD & SILVER PRICES</div>
+      <a href="https://unishniraulaofficial.github.io/LIVE_GOLD_-_SILVER_PRICES/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+    </div>
+
+    <p class="project-desc">Provides real-time updates on gold and silver prices with a clean, responsive interface.</p>
+  </div>
+  </div>
+</main>
+
+<footer>&copy; <span id="year"></span> Unish Niraula. All rights reserved.</footer>
+
+<script src="projects.js"></script>
 <script>
-  // Unit conversion ratio: 1 tola = 11.6638 grams
-  const GRAMS_PER_TOLA = 11.6638038;
+  // Search Filtering Logic
+  document.getElementById('projectSearch').addEventListener('input', function (e) {
+    const query = e.target.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
 
-  async function autoCalculateGoldSilver() {
-    const preciousGrid = document.getElementById('preciousGrid');
-
-    // Official FENEGOSIDA Benchmark Rates (per tola)
-    let hallmarkGoldPerTola = 301900;
-    let tejabiGoldPerTola = 298900;
-    let silverPerTola = 4690;
-
-    // Derived values
-    const hallmark10g = Math.round(hallmarkGoldPerTola * (10 / GRAMS_PER_TOLA));
-    const hallmark1g = Math.round(hallmarkGoldPerTola / GRAMS_PER_TOLA);
-
-    const tejabi10g = Math.round(tejabiGoldPerTola * (10 / GRAMS_PER_TOLA));
-    const tejabi1g = Math.round(tejabiGoldPerTola / GRAMS_PER_TOLA);
-
-    const silver10g = Math.round(silverPerTola * (10 / GRAMS_PER_TOLA));
-    const silver1g = (silverPerTola / GRAMS_PER_TOLA).toFixed(2);
-
-    // Dynamic Card Generation with Tola & Gram Breakdown
-    if (preciousGrid) {
-      preciousGrid.innerHTML = `
-        <!-- Fine Gold Card -->
-        <div class="card" style="padding:18px; border:1px solid #e0e0e0; border-radius:10px; background:#ffffff; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-          <div style="font-size:15px; color:#555; font-weight:700;">🥇 Fine Gold (Hallmark 24K / 9999)</div>
-          <div style="font-size:26px; font-weight:800; color:#111; margin:8px 0;">
-            NRs ${hallmarkGoldPerTola.toLocaleString('en-IN')} <span style="font-size:13px; font-weight:500; color:#666;">/ tola</span>
-          </div>
-          <div style="font-size:13px; color:#444; border-top:1px solid #eee; padding-top:8px; margin-top:8px;">
-            <div>• <strong>Per 10 Grams:</strong> NRs ${hallmark10g.toLocaleString('en-IN')}</div>
-            <div>• <strong>Per 1 Gram:</strong> NRs ${hallmark1g.toLocaleString('en-IN')}</div>
-          </div>
-        </div>
-
-        <!-- Tejabi Gold Card -->
-        <div class="card" style="padding:18px; border:1px solid #e0e0e0; border-radius:10px; background:#ffffff; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-          <div style="font-size:15px; color:#555; font-weight:700;">🪙 Tejabi Gold (22K / ~99.5%)</div>
-          <div style="font-size:26px; font-weight:800; color:#111; margin:8px 0;">
-            NRs ${tejabiGoldPerTola.toLocaleString('en-IN')} <span style="font-size:13px; font-weight:500; color:#666;">/ tola</span>
-          </div>
-          <div style="font-size:13px; color:#444; border-top:1px solid #eee; padding-top:8px; margin-top:8px;">
-            <div>• <strong>Per 10 Grams:</strong> NRs ${tejabi10g.toLocaleString('en-IN')}</div>
-            <div>• <strong>Per 1 Gram:</strong> NRs ${tejabi1g.toLocaleString('en-IN')}</div>
-          </div>
-        </div>
-
-        <!-- Silver Card -->
-        <div class="card" style="padding:18px; border:1px solid #e0e0e0; border-radius:10px; background:#ffffff; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-          <div style="font-size:15px; color:#555; font-weight:700;">🥈 Pure Silver (Chandi / 999)</div>
-          <div style="font-size:26px; font-weight:800; color:#111; margin:8px 0;">
-            NRs ${silverPerTola.toLocaleString('en-IN')} <span style="font-size:13px; font-weight:500; color:#666;">/ tola</span>
-          </div>
-          <div style="font-size:13px; color:#444; border-top:1px solid #eee; padding-top:8px; margin-top:8px;">
-            <div>• <strong>Per 10 Grams:</strong> NRs ${silver10g.toLocaleString('en-IN')}</div>
-            <div>• <strong>Per 1 Gram:</strong> NRs ${silver1g}</div>
-          </div>
-        </div>
-      `;
-    }
-
-    // Update historical table footer values
-    if (document.getElementById('histCurrentGold')) {
-      document.getElementById('histCurrentGold').innerText = `NRs ${hallmarkGoldPerTola.toLocaleString('en-IN')}`;
-    }
-    if (document.getElementById('histCurrentTejabi')) {
-      document.getElementById('histCurrentTejabi').innerText = `NRs ${tejabiGoldPerTola.toLocaleString('en-IN')}`;
-    }
-    if (document.getElementById('histCurrentSilver')) {
-      document.getElementById('histCurrentSilver').innerText = `NRs ${silverPerTola.toLocaleString('en-IN')}`;
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    autoCalculateGoldSilver();
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      if (text.includes(query)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
   });
 </script>
 </body>
