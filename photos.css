@@ -1,32 +1,53 @@
 /* Gallery Category Navigation Tabs */
-.gallery-tabs {
+.nav-box {
   display: flex;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.tab-btn {
-  font-family: var(--mono);
-  font-size: 12px;
-  padding: 8px 16px;
-  border-radius: 6px;
+  background: #111317;
   border: 1px solid var(--border);
-  background: var(--surface);
+  border-radius: 8px;
+  margin: 20px 0 30px;
+  overflow: hidden;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
   color: var(--dim);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tab-btn:hover {
-  color: var(--text);
-  border-color: var(--dim);
-}
-
-.tab-btn.active {
-  background: rgba(227, 179, 65, 0.1);
-  color: var(--amber);
-  border-color: var(--amber);
+  font-family: var(--mono);
+  font-size: 11px;
   font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  user-select: none;
+}
+
+.nav-item:last-child {
+  border-right: none;
+}
+
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 6px;
+}
+
+.nav-item:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.nav-item.active {
+  color: var(--amber);
+  background: rgba(227, 179, 65, 0.03);
 }
 
 /* Dynamic Gallery Grid */
