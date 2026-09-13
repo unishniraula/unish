@@ -4,11 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Unish Niraula — Projects</title>
-   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
   
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="projects.css">
+  <style>
+    /* Tab Filtering Buttons Styling */
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #a0aec0;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .tab-btn.active-tab {
+      background: #000000;
+      color: #fff;
+      border-color: #ffee00;
+    }
+  </style>
 </head>
 <body>
 
@@ -29,7 +61,6 @@
     <a href="https://unishniraula.com.np/photos" class="nav-item"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>PHOTOS</a>
     <a href="https://unishniraula.com.np/contact" class="nav-item"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>CONTACT</a>
   </nav>
-</main>
 
   <!-- Filter Sub-Tabs -->
   <div class="filter-tabs">
@@ -200,41 +231,34 @@
     <p class="project-desc">Experience the fast-paced thrill of crossing the road right in your browser. Built entirely with pure HTML, CSS, and JavaScript</p>
   </div>
 
- <div class="card" data-category="game">
+  <div class="card" data-category="game">
     <div class="project-header">
       <div class="project-title"> Project 18: PAC MAN GAME</div>
       <a href="https://unishniraula.github.io/PAC_MAN_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
     </div>
 
-    
-
     <p class="project-desc">A classic arcade game brought to life in your browser. Navigate the maze, avoid ghosts, and collect pellets in this Pac-Man game. </p>
+  </div>
 
-    </div>
-
-     <div class="card" data-category="game">
+  <div class="card" data-category="game">
     <div class="project-header">
       <div class="project-title"> Project 19: SODOKU GAME</div>
       <a href="https://unishniraula.github.io/SODOKU_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
     </div>
 
-    
-
     <p class="project-desc">Challenge your focus and problem-solving skills with Classic Sudoku. No calculations needed—just raw strategy and concentration. </p>
-</div>
+  </div>
 
-     <div class="card" data-category="game">
+  <div class="card" data-category="game">
     <div class="project-header">
       <div class="project-title"> Project 20: SOLITAIRE GAME</div>
       <a href="https://unishniraula.github.io/SOLITAIRE_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
     </div>
 
-    
-
     <p class="project-desc">Experience the classic challenge of Solitaire in your browser. Built entirely with pure HTML, CSS, and JavaScript. </p>
-</div>
+  </div>
 
- <div class="card" data-category="web">
+  <div class="card" data-category="web">
     <div class="project-header">
       <div class="project-title">Project 21: CUSTOM VIDEO PLAYER  </div>
       <a href="http://unishniraula.github.io/CUSTOM_VIDEO_PLAYER/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
@@ -242,7 +266,6 @@
     
     <p class="project-desc">A responsive video player UI built using clean HTML and custom CSS.</p>
   </div>
-
 </main>
 
 <footer>&copy; <span id="year"></span> Unish Niraula. All rights reserved.</footer>
