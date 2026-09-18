@@ -7,11 +7,11 @@
   <meta name="description" content="Official portfolio of Unish Niraula (युनिश निरौला), a Web Designer and Full Stack Developer from Pathari, Morang, Nepal.">
   <meta name="keywords" content="Unish Niraula, युनिश निरौला, Web Developer Nepal, Pathari Morang, Full Stack Developer">
   <link rel="canonical" href="https://unishniraula.com.np/">
- 
+
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7079138983424873" crossorigin="anonymous"></script>
 
-  <!-- Open Graph / Facebook / Google Search Metadata -->
+  <!-- Open Graph / Metadata -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Unish Niraula — Portfolio">
   <meta property="og:description" content="Nepali Web Designer and Developer skilled in Front-end and Back-end Web Development.">
@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
 
-  <!-- Corrected & Enhanced JSON-LD Structured Data for Google Knowledge Graph -->
+  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,26 +49,10 @@
       "@type": "EducationalOrganization",
       "name": "Bachelor of Information Technology (BIT)"
     },
-    "knowsAbout": [
-      "Web Development",
-      "JavaScript",
-      "PHP",
-      "WordPress",
-      "Angular",
-      "HTML",
-      "CSS",
-      "Python",
-      "MySQL"
-    ],
+    "knowsAbout": ["Web Development", "JavaScript", "PHP", "WordPress", "Angular", "HTML", "CSS", "Python", "MySQL"],
     "parents": [
-      {
-        "@type": "Person",
-        "name": "Umanath Niraula"
-      },
-      {
-        "@type": "Person",
-        "name": "Dhanmaya Niraula"
-      }
+      { "@type": "Person", "name": "Umanath Niraula" },
+      { "@type": "Person", "name": "Dhanmaya Niraula" }
     ],
     "sameAs": [
       "https://unishniraula.com.np",
@@ -83,12 +67,58 @@
 
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="photos.css">
+  <link rel="stylesheet" href="contact.css">
+
+  <style>
+    /* SPA View Switching Styles */
+    .page-section {
+      display: none;
+    }
+    .page-section.active {
+      display: block;
+    }
+    .nav-item {
+      cursor: pointer;
+    }
+
+    /* Projects Tab Filtering Styling */
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #a0aec0;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .tab-btn.active-tab {
+      background: #000000;
+      color: #fff;
+      border-color: #ffee00;
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <div class="header-row">
-    <div class="avatar-sm"><img src="https://cdn.phototourl.com/free/2026-08-13-e6fae289-1e49-4fce-b732-136059cf0826.png" alt="Unish Niraula"></div>
+    <div class="avatar-sm">
+      <img src="https://cdn.phototourl.com/free/2026-08-13-e6fae289-1e49-4fce-b732-136059cf0826.png" alt="Unish Niraula">
+    </div>
     <div>
       <div class="header-name">Unish Niraula</div>
       <div class="header-role">Aspiring Full Stack Dev</div>
@@ -97,14 +127,24 @@
 </header>
 
 <main class="container">
+  <!-- Shared Navigation Bar -->
   <nav class="nav-box">
-    <a href="https://unishniraula.com.np/" class="nav-item active"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>HOME</a>
-    <a href="https://unishniraula.com.np/projects" class="nav-item"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>PROJECTS</a>
-    <a href="https://unishniraula.com.np/photos" class="nav-item"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>PHOTOS</a>
-    <a href="https://unishniraula.com.np/contact" class="nav-item"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>CONTACT</a>
+    <button class="nav-item active" onclick="showSection('home', this)">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>HOME
+    </button>
+    <button class="nav-item" onclick="showSection('projects', this)">
+      <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>PROJECTS
+    </button>
+    <button class="nav-item" onclick="showSection('photos', this)">
+      <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>PHOTOS
+    </button>
+    <button class="nav-item" onclick="showSection('contact', this)">
+      <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>CONTACT
+    </button>
   </nav>
 
-  <section class="about-section">
+  <!-- HOME SECTION -->
+  <section id="home" class="page-section active about-section">
     <div class="hero-banner">
       <div class="avatar-lg"><img src="https://cdn.phototourl.com/free/2026-08-13-e6fae289-1e49-4fce-b732-136059cf0826.png" alt="Unish Niraula"></div>
     </div>
@@ -141,7 +181,7 @@
           <li>WordPress Development</li><li>Installation Services</li><li>SEO Audit</li>
           <li class="disabled">Hosting & Domain</li><li class="disabled">WordPress Security</li>
         </ul>
-        <a href="https://unishniraula.com.np/contact" class="btn-order">ORDER NOW &rsaquo;</a>
+        <button onclick="showSection('contact')" class="btn-order">ORDER NOW &rsaquo;</button>
       </div>
       <div class="pricing-card">
         <div class="pricing-icon-circle"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.71 1.26-1.5 1.5-2.5-1.5-.5-3-2-3.5-3.5-.98.24-1.78.79-2.5 1.5z"/><path d="M12 15l-3-3 7.5-7.5c.83-.83 2.17-.83 3 0s.83 2.17 0 3L12 15z"/></svg></div>
@@ -152,7 +192,7 @@
           <li>WordPress Development</li><li>Installation Services</li><li>SEO Audit</li>
           <li>Hosting & Domain <span class="tag-new">new</span></li><li>WordPress Security <span class="tag-new">new</span></li>
         </ul>
-        <a href="https://unishniraula.com.np/contact" class="btn-order">ORDER NOW &rsaquo;</a>
+        <button onclick="showSection('contact')" class="btn-order">ORDER NOW &rsaquo;</button>
       </div>
     </div>
 
@@ -198,10 +238,339 @@
       </div>
     </div>
   </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="page-section">
+    <div class="filter-tabs">
+      <button class="tab-btn active-tab" onclick="filterCategory('all', this)">All</button>
+      <button class="tab-btn" onclick="filterCategory('web', this)">Web Apps</button>
+      <button class="tab-btn" onclick="filterCategory('game', this)">Games</button>
+    </div>
+
+    <div class="search-container">
+      <input type="text" id="projectSearch" class="search-input" placeholder="Search projects by name or description...">
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 1: TASK MANAGER</div>
+        <a href="https://unishniraula.github.io/Project-1/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A fully functional interactive task manager built with JavaScript. Click the button above to visit the live site.</p>
+      <ul id="todoList" class="todo-list"></ul>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 2: QUIZ GAME</div>
+        <a href="https://unishniraula.github.io/Project-2/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">An interactive trivia and knowledge testing quiz game built with vanilla JavaScript. Click the button above to play live.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 3: CONTACT FORM</div>
+        <a href="https://unishniraula.github.io/Project-3/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A modern, responsive contact form UI built using clean HTML and custom CSS. Click the button above to test it live.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 4: COLOR PALETTE GENERATOR</div>
+        <a href="https://unishniraula.github.io/Project-4/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">An interactive web project built using HTML, CSS, and JavaScript. Click the button above to explore it live.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 5: GITHUB FINDER</div>
+        <a href="https://unishniraula.github.io/Project-5/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A web application built to search GitHub users, fetch profile details, and display public repositories using the GitHub REST API. Click the button above to test it live.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 6: CURRENCY CONVERTOR</div>
+        <a href="https://unishniraula.github.io/Project-6/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A web application built to search global exchange rates, calculate currency values, and display real-time conversion rates using the Exchange Rate REST API. Click the button above to test it live.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 7: DARK TOGGLE</div>
+        <a href="https://unishniraula.github.io/Project-7/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A front-end web application that leverages persistent state management to deliver seamlessly adaptable dark and light themes, improving visual ergonomics and screen accessibility.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 8: OTP INPUT UI</div>
+        <a href="https://unishniraula.github.io/Project-8/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A modern, responsive OTP input UI built using clean HTML and custom CSS. Click the button above to test it live.</p>
+    </div>
+    
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 9: COMMING SOON UI</div>
+        <a href="https://unishniraula.github.io/Project-9/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">Here is a complete, modern "Coming Soon" page with custom CSS, interactive JavaScript.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 10: QR CODE GENERATOR</div>
+        <a href="https://unishniraula.github.io/Project-10/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A modern, responsive QR Code Generator built using clean HTML, custom CSS, and JavaScript. Click the button below to generate custom QR codes live.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 11: PASSWORD GENERATOR</div>
+        <a href="https://unishniraula.github.io/Project-11/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">The Password Generator is a responsive website built using HTML, CSS, and JavaScript. Designed with a focus on simplicity, security, and user experience, it allows users to quickly create customizable, cryptographically strong passwords tailored to specific security requirements.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 12: B.S. TO A.D. CONVERTOR</div>
+        <a href="https://dateconvertor.infy.click/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">The BS to AD Converter is a responsive website built using HTML, CSS, and JavaScript. Designed with a focus on simplicity, accuracy, and user experience.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 13: KUNDALI MAKER</div>
+        <a href="https://unishniraula.github.io/KUNDALI_MAKER/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">Developed using HTML, CSS, and JavaScript, Kundali Maker delivers a streamlined user experience, pairing precise astronomical data processing with a clean, fully responsive layout.</p>
+    </div>
+     
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 14: KUNDALI MATCHMAKING</div>
+        <a href="https://unishniraula.github.io/KUNDALI_MATCHMAKING/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">Engineered with HTML, CSS, and JavaScript, this platform pairs complex astrological algorithms with an intuitive UI to deliver fast, accurate compatibility assessments across all screen sizes.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 15: LIVE GOLD & SILVER PRICES</div>
+        <a href="https://unishniraula.github.io/LIVE_GOLD_-_SILVER_PRICES/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">Provides real-time updates on gold and silver prices with a clean, responsive interface.</p>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 16: CHESS GAME</div>
+        <a href="https://unishniraula.github.io/CHESS_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A simple yet engaging chess game built with HTML, CSS, and JavaScript.</p>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 17: CROSSY ROAD GAME</div>
+        <a href="https://unishniraula.github.io/CROSSY_ROAD_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">Experience the fast-paced thrill of crossing the road right in your browser. Built entirely with pure HTML, CSS, and JavaScript</p>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 18: PAC MAN GAME</div>
+        <a href="https://unishniraula.github.io/PAC_MAN_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A classic arcade game brought to life in your browser. Navigate the maze, avoid ghosts, and collect pellets in this Pac-Man game.</p>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 19: SODOKU GAME</div>
+        <a href="https://unishniraula.github.io/SODOKU_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">Challenge your focus and problem-solving skills with Classic Sudoku. No calculations needed—just raw strategy and concentration.</p>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 20: SOLITAIRE GAME</div>
+        <a href="https://unishniraula.github.io/SOLITAIRE_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">Experience the classic challenge of Solitaire in your browser. Built entirely with pure HTML, CSS, and JavaScript.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 21: CUSTOM VIDEO PLAYER</div>
+        <a href="http://unishniraula.github.io/CUSTOM_VIDEO_PLAYER/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A responsive video player UI built using clean HTML and custom CSS.</p>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 22: HANGMAN GAME</div>
+        <a href="http://unishniraula.github.io/HANGMAN_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A classic word-guessing game built with HTML, CSS, and JavaScript.</p>
+    </div>
+
+    <div class="card" data-category="web">
+      <div class="project-header">
+        <div class="project-title">Project 23: GOOD CHEAP FAST TOGGLE</div>
+        <a href="https://unishniraula.github.io/GOOD_CHEAP_FAST_TOGGLE/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">The website automatically turns off one of your previous choices—proving you can't have a project that is high quality, low cost, and delivered fast all at once.</p>
+    </div>
+
+    <div class="card" data-category="game">
+      <div class="project-header">
+        <div class="project-title">Project 24: MINESWEEPER GAME</div>
+        <a href="https://unishniraula.github.io/MINESWEEPER_GAME/" target="_blank" rel="noopener noreferrer" class="btn-launch">Open Live ↗</a>
+      </div>
+      <p class="project-desc">A clean, browser-based recreation of the classic Minesweeper game built using HTML, CSS, and JavaScript.</p>
+    </div>
+  </section>
+
+  <!-- PHOTOS SECTION -->
+  <section id="photos" class="page-section about-section">
+    <div class="gallery-tabs">
+      <button class="tab-btn active" data-category="all">All Photos</button>
+      <button class="tab-btn" data-category="personal">Personal Photos</button>
+      <button class="tab-btn" data-category="professional">Professional Photos</button>
+    </div>
+
+    <div class="section-title">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      INSTAGRAM GALLERY
+    </div>
+
+    <div class="gallery-grid" id="photosGrid">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DcJCdOaCLFq/" data-instgrm-version="14"></blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="page-section">
+    <div class="card">
+      <h2 class="contact-title">Unish Niraula</h2>
+      <div class="contact-location">
+        📍 Kathmandu, Nepal • P.O. Box: 44600
+      </div>
+
+      <div class="info-group">
+        <div class="info-label">Business Inquiries</div>
+        <a href="mailto:unishniraula.official@gmail.com" class="email-link info-value">
+          unishniraula.official@gmail.com
+        </a>
+      </div>
+
+      <div class="info-group">
+        <div class="info-label">Personal Email</div>
+        <a href="mailto:unish.niraula.001@gmail.com" class="email-link info-value">
+          unish.niraula.001@gmail.com
+        </a>
+      </div>
+
+      <div class="info-group">
+        <div class="info-label" style="margin-bottom:12px;">Connect With Me</div>
+        <div class="social-list">
+          <a href="https://www.facebook.com/share/1C1A2UBVH9/" target="_blank" class="social-card" title="Open Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          
+          <a href="https://www.tiktok.com/@unish.niraula_0?_r=1&_t=ZS-98rkguARhH2" target="_blank" class="social-card" title="Open TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.5-1.41 2.49-.1 1.2.43 2.42 1.39 3.12.83.62 1.93.85 2.94.62 1.09-.23 2.05-.97 2.49-1.98.33-.73.43-1.55.42-2.35-.02-5.38-.01-10.76-.02-16.14z"/></svg>
+            TikTok
+          </a>
+
+          <a href="https://www.instagram.com/bhar_dwaj.0?igsh=cXZyam45ZjJza2I=" target="_blank" class="social-card" title="Open Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>&copy; <span id="year"></span> Unish Niraula. All rights reserved.</footer>
 
+<!-- Shared JavaScript logic -->
+<script async src="//www.instagram.com/photos.js"></script>
 <script src="script.js"></script>
+<script src="projects.js"></script>
+<script src="photos.js"></script>
+<script src="contact.js"></script>
+
+<script>
+  // Section Visibility Management
+  function showSection(sectionId, element) {
+    document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+
+    if (element) {
+      document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+    }
+  }
+
+  // Dynamic Year Generator
+  const yearElem = document.getElementById('year');
+  if (yearElem) {
+    yearElem.textContent = new Date().getFullYear();
+  }
+
+  // Projects Filter Script
+  let currentCategory = 'all';
+
+  function filterCategory(category, element) {
+    currentCategory = category;
+    document.querySelectorAll('.filter-tabs .tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+    element.classList.add('active-tab');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const searchInput = document.getElementById('projectSearch');
+    if (!searchInput) return;
+    
+    const query = searchInput.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('#projects .card');
+
+    cards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const text = card.textContent.toLowerCase();
+
+      const matchesSearch = text.includes(query);
+      const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  const searchElement = document.getElementById('projectSearch');
+  if (searchElement) {
+    searchElement.addEventListener('input', applyFilters);
+  }
+</script>
 </body>
 </html>
