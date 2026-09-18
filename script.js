@@ -1,1 +1,5 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+// main.js
+import './script.js';
+import './projects.js';
+import './contact.js';
+import './photos.js';
