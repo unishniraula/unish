@@ -1,5 +1,8 @@
-// main.js
-import './script.js';
-import './projects.js';
-import './contact.js';
-import './photos.js';
+// Base global script functionality
+document.addEventListener('DOMContentLoaded', () => {
+  // Set current year in footer
+  const yearElem = document.getElementById('year');
+  if (yearElem) {
+    yearElem.textContent = new Date().getFullYear();
+  }
+});
