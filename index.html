@@ -65,11 +65,23 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .pf img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* card hover */
-.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s}
-.card-h:hover{transform:translateY(-4px)}
+.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s, box-shadow .28s}
+.card-h:hover{transform:translateY(-6px);box-shadow: 0 12px 30px -10px rgba(255, 107, 43, 0.15);}
 
 /* skill tag */
 .stag{transition:border-color .18s}
+
+/* Custom SVG Animation Keyframes */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+@keyframes floatChar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.animate-pulse-glow { animation: pulseGlow 2.5s infinite ease-in-out; }
+.animate-float { animation: floatChar 2s infinite ease-in-out; }
 
 [x-cloak]{display:none!important}
 </style>
@@ -220,7 +232,6 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       <!-- Janam Kundali Maker Project Card -->
       <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
         <div class="w-full h-48 bg-zinc-950 relative overflow-hidden flex items-center justify-center">
-          <!-- Astrological Graphic SVG -->
           <svg class="w-full h-full" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="spaceBg" cx="50%" cy="50%" r="50%">
@@ -233,7 +244,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
               </linearGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#spaceBg)" />
-            <circle cx="250" cy="150" r="115" stroke="url(#goldGradient)" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="6,4" />
+            <circle class="animate-pulse-glow" cx="250" cy="150" r="115" stroke="url(#goldGradient)" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="6,4" />
             <circle cx="250" cy="150" r="100" stroke="url(#goldGradient)" stroke-width="2" fill="none" opacity="0.75" />
             <rect x="180" y="80" width="140" height="140" stroke="url(#goldGradient)" stroke-width="2" fill="none" opacity="0.9" />
             <line x1="180" y1="80" x2="320" y2="220" stroke="url(#goldGradient)" stroke-width="1.5" opacity="0.8" />
@@ -241,12 +252,6 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
             <polygon points="250,80 320,150 250,220 180,150" stroke="url(#goldGradient)" stroke-width="1.5" fill="none" opacity="0.8" />
             <circle cx="250" cy="150" r="10" fill="url(#goldGradient)" />
             <circle cx="250" cy="150" r="18" stroke="#FF6B2B" stroke-width="1" fill="none" opacity="0.6" />
-            <circle cx="90" cy="50" r="1.5" fill="#ffffff" opacity="0.8" />
-            <circle cx="410" cy="70" r="2" fill="#ffffff" opacity="0.6" />
-            <circle cx="70" cy="230" r="1" fill="#ffffff" opacity="0.5" />
-            <circle cx="430" cy="220" r="1.5" fill="#ffffff" opacity="0.7" />
-            <circle cx="120" cy="150" r="2.5" fill="#FF6B2B" opacity="0.9" />
-            <circle cx="380" cy="150" r="2.5" fill="#FF6B2B" opacity="0.9" />
           </svg>
         </div>
 
@@ -273,10 +278,9 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
         </div>
       </article>
 
-  <!-- GOLD AND SILVER PRICE -->
-      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col transition-all duration-300">
+      <!-- GOLD AND SILVER PRICE -->
+      <article class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col transition-all duration-300">
         <div class="w-full h-48 bg-zinc-950 relative overflow-hidden flex items-center justify-center">
-          <!-- SVG Bullion / Precious Metals Vector Motif -->
           <svg class="w-full h-full" viewBox="0 0 500 300">
             <defs>
               <radialGradient id="metalBg" cx="50%" cy="50%" r="50%">
@@ -293,29 +297,11 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
               </linearGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#metalBg)" />
-            
-            <!-- Outer Orbit Ring -->
-            <circle cx="250" cy="150" r="115" stroke="url(#bullionGradient)" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="8,6" />
-            
-            <!-- Central Ingot / Bar Representation -->
+            <circle class="animate-pulse-glow" cx="250" cy="150" r="115" stroke="url(#bullionGradient)" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="8,6" />
             <rect x="190" y="105" width="120" height="90" rx="8" stroke="url(#bullionGradient)" stroke-width="2" fill="#18181b" opacity="0.9" />
             <rect x="210" y="125" width="80" height="50" rx="4" stroke="url(#silverGradient)" stroke-width="1.5" fill="none" opacity="0.7" />
-            
-            <!-- Geometric Accents -->
-            <line x1="190" y1="105" x2="210" y2="125" stroke="url(#bullionGradient)" stroke-width="1.5" opacity="0.8" />
-            <line x1="310" y1="105" x2="290" y2="125" stroke="url(#bullionGradient)" stroke-width="1.5" opacity="0.8" />
-            <line x1="190" y1="195" x2="210" y2="175" stroke="url(#bullionGradient)" stroke-width="1.5" opacity="0.8" />
-            <line x1="310" y1="195" x2="290" y2="175" stroke="url(#bullionGradient)" stroke-width="1.5" opacity="0.8" />
-            
-            <!-- Center Core Spark -->
             <circle cx="250" cy="150" r="6" fill="url(#bullionGradient)" />
             <circle cx="250" cy="150" r="14" stroke="#F59E0B" stroke-width="1" fill="none" opacity="0.5" />
-            
-            <!-- Decorative Market Nodes -->
-            <circle cx="100" cy="70" r="2" fill="#F59E0B" opacity="0.8" />
-            <circle cx="400" cy="80" r="2.5" fill="#E2E8F0" opacity="0.7" />
-            <circle cx="80" cy="220" r="1.5" fill="#E2E8F0" opacity="0.5" />
-            <circle cx="420" cy="210" r="2" fill="#F59E0B" opacity="0.9" />
           </svg>
         </div>
 
@@ -330,12 +316,89 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
             <span class="text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-700">Tailwind CSS</span>
             <span class="text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-700">JavaScript</span>
           </div>
-        </div>
+
           <div class="flex items-center gap-3 pt-2">
             <a href="https://unishniraula.github.io/LIVE_GOLD_-_SILVER_PRICES/" target="_blank" rel="noopener noreferrer" class="flex-1 shimmer text-center bg-accent text-white font-medium text-xs px-4 py-2.5 rounded-full hover:bg-accent-light transition-colors">
               Live Demo
             </a>
             <a href="https://github.com/unishniraula/LIVE_GOLD_-_SILVER_PRICES" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-medium text-xs px-4 py-2.5 rounded-full border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
+              GitHub Repo
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PAC MAN GAME -->
+      <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col transition-all duration-300">
+        <div class="w-full h-48 bg-zinc-950 relative overflow-hidden flex items-center justify-center">
+          <svg class="w-full h-full" viewBox="0 0 500 300">
+            <defs>
+              <radialGradient id="pacBg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#090d16" />
+                <stop offset="100%" stop-color="#020408" />
+              </radialGradient>
+              <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#pacBg)" />
+            
+            <!-- Neon Maze Walls -->
+            <path d="M 40 40 H 460 V 260 H 40 Z" fill="none" stroke="#2563eb" stroke-width="4" filter="url(#neonGlow)" opacity="0.8" />
+            <path d="M 80 80 H 210 V 120 H 80 Z M 290 80 H 420 V 120 H 290 Z" fill="none" stroke="#1d4ed8" stroke-width="3" opacity="0.7" />
+            <path d="M 80 160 H 150 V 220 H 80 Z M 350 160 H 420 V 220 H 350 Z" fill="none" stroke="#1d4ed8" stroke-width="3" opacity="0.7" />
+            <path d="M 190 180 H 310 V 220 H 190 Z" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.8" filter="url(#neonGlow)" />
+            
+            <!-- Animated Pac-Dots & Power Pellet -->
+            <circle cx="210" cy="150" r="4" fill="#fbbf24" opacity="0.6" />
+            <circle cx="240" cy="150" r="4" fill="#fbbf24" opacity="0.8" />
+            <circle cx="270" cy="150" r="4" fill="#fbbf24" />
+            <circle cx="300" cy="150" r="4" fill="#fbbf24" />
+            <circle class="animate-pulse-glow" cx="335" cy="150" r="7" fill="#fef08a" filter="url(#neonGlow)" />
+
+            <!-- Pac-Man Character -->
+            <g class="animate-float">
+              <path d="M 155 150 L 138 135 A 20 20 0 1 0 138 165 Z" fill="#facc15" filter="url(#neonGlow)" />
+            </g>
+            
+            <!-- Red Ghost (Blinky) -->
+            <g transform="translate(370, 137)">
+              <path d="M 0 12 A 12 12 0 0 1 24 12 V 26 L 20 22 L 16 26 L 12 22 L 8 26 L 4 22 L 0 26 Z" fill="#ef4444" filter="url(#neonGlow)" />
+              <circle cx="7" cy="10" r="3.5" fill="#ffffff" />
+              <circle cx="17" cy="10" r="3.5" fill="#ffffff" />
+              <circle cx="5" cy="10" r="1.8" fill="#1e3a8a" />
+              <circle cx="15" cy="10" r="1.8" fill="#1e3a8a" />
+            </g>
+            
+            <!-- Blue Ghost (Inky) -->
+            <g transform="translate(410, 137)">
+              <path d="M 0 12 A 12 12 0 0 1 24 12 V 26 L 20 22 L 16 26 L 12 22 L 8 26 L 4 22 L 0 26 Z" fill="#06b6d4" opacity="0.9" filter="url(#neonGlow)" />
+              <circle cx="7" cy="10" r="3.5" fill="#ffffff" />
+              <circle cx="17" cy="10" r="3.5" fill="#ffffff" />
+              <circle cx="5" cy="10" r="1.8" fill="#1e3a8a" />
+              <circle cx="15" cy="10" r="1.8" fill="#1e3a8a" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="p-6 flex flex-col flex-grow">
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">PAC MAN GAME</h3>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-6 flex-grow">
+            A classic arcade game reproduction built with modern web technologies, featuring smooth grid-based movement, ghost AI behaviors, score tracking, and retro neon visuals.
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6" role="list">
+            <span class="text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-700">HTML5 Canvas</span>
+            <span class="text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-700">Tailwind CSS</span>
+            <span class="text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-700">JavaScript ES6</span>
+          </div>
+
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://unishniraula.github.io/PAC_MAN_GAME/" target="_blank" rel="noopener noreferrer" class="flex-1 shimmer text-center bg-accent text-white font-medium text-xs px-4 py-2.5 rounded-full hover:bg-accent-light transition-colors">
+              Live Demo
+            </a>
+            <a href="https://github.com/unishniraula/PAC_MAN_GAME" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-medium text-xs px-4 py-2.5 rounded-full border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
               GitHub Repo
             </a>
           </div>
@@ -468,114 +531,62 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
           <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">I'm open to UI/UX and frontend missions, short or long-term. Landing page, full product redesign, or just a second pair of eyes — let's talk.</p>
 
           <div class="reveal d3 flex flex-col gap-4">
-<!-- Email Card / Link -->
-<a 
-  href="mailto:unishniraula.official@gmail.com" 
-  class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50"
->
-  <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
-    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-    </svg>
-  </span>
-  <div class="flex flex-col min-w-0">
-    <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">
-      Email Address
-    </span>
-    <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">
-      unishniraula.official@gmail.com
-    </span>
-  </div>
-</a>
+            <!-- Email Card / Link -->
+            <a href="mailto:unishniraula.official@gmail.com" class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50">
+              <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </span>
+              <div class="flex flex-col min-w-0">
+                <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">Email Address</span>
+                <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">unishniraula.official@gmail.com</span>
+              </div>
+            </a>
 
-<!-- GitHub Card / Link -->
-<a 
-  href="https://github.com/unishniraula" 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50"
->
-  <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-    </svg>
-  </span>
-  <div class="flex flex-col min-w-0">
-    <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">
-      GitHub
-    </span>
-    <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">
-      @unishniraula
-    </span>
-  </div>
-</a>
+            <!-- GitHub Card / Link -->
+            <a href="https://github.com/unishniraula" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50">
+              <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </span>
+              <div class="flex flex-col min-w-0">
+                <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">GitHub</span>
+                <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">@unishniraula</span>
+              </div>
+            </a>
 
-<!-- TikTok Card / Link -->
-<a 
-  href="https://www.tiktok.com/@unishniraulaofficial" 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50"
->
-  <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-    </svg>
-  </span>
-  <div class="flex flex-col min-w-0">
-    <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">
-      TikTok
-    </span>
-    <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">
-      @unishniraulaofficial
-    </span>
-  </div>
-</a>
+            <!-- TikTok Card / Link -->
+            <a href="https://www.tiktok.com/@unishniraulaofficial" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50">
+              <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              </span>
+              <div class="flex flex-col min-w-0">
+                <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">TikTok</span>
+                <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">@unishniraulaofficial</span>
+              </div>
+            </a>
 
-<!-- Facebook Card / Link -->
-<a 
-  href="https://www.facebook.com/profile.php?id=61592602745961" 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50"
->
-  <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
-    </svg>
-  </span>
-  <div class="flex flex-col min-w-0">
-    <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">
-      Facebook
-    </span>
-    <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">
-      Unish Niraula
-    </span>
-  </div>
-</a>
+            <!-- Facebook Card / Link -->
+            <a href="https://www.facebook.com/profile.php?id=61592602745961" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50">
+              <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+              </span>
+              <div class="flex flex-col min-w-0">
+                <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">Facebook</span>
+                <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">Unish Niraula</span>
+              </div>
+            </a>
 
-<!-- Instagram Card / Link -->
-<a 
-  href="https://instagram.com/unishniraulaofficial" 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50"
->
-  <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-    </svg>
-  </span>
-  <div class="flex flex-col min-w-0">
-    <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">
-      Instagram
-    </span>
-    <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">
-      @unishniraulaofficial
-    </span>
-  </div>
-</a>
-            
+            <!-- Instagram Card / Link -->
+            <a href="https://instagram.com/unishniraulaofficial" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3.5 p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700/80 hover:bg-zinc-800/50 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50">
+              <span class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-lg text-zinc-400 group-hover:bg-accent/15 group-hover:text-accent transition-all duration-300 shrink-0 border border-zinc-700/50 group-hover:border-accent/30">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </span>
+              <div class="flex flex-col min-w-0">
+                <span class="text-xs font-medium uppercase tracking-wider text-zinc-500 group-hover:text-zinc-400 transition-colors">Instagram</span>
+                <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">@unishniraulaofficial</span>
+              </div>
+            </a>
           </div>
         </div>
 
